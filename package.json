@@ -1,0 +1,22 @@
+{
+  "name": "react-pic",
+  "version": "0.0.0",
+  "description": "A responsive image loading component.",
+  "author": "Ben Budnevich",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "npm",
+    "package",
+    "template"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^3.4.0",
+    "mocha": "^3.0.2"
+  },
+  "license": "MIT"
+}
