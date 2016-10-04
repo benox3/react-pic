@@ -13,7 +13,29 @@ export default class Playground extends Component {
         </head>
         <body>
           <div id="root">
-            <Pic serverImg='//placekitten.com/200/300' />
+            <Pic
+                images={[
+                  {
+                    width: 290,
+                    url: 'http://placehold.it/290?text=♥'
+                  },
+                  {
+                    width: 300,
+                    url: 'http://placehold.it/300?text=♥'
+                  },
+                  {
+                    width: 353,
+                    url: 'http://placehold.it/353?text=♥'
+                  },
+                  {
+                    width: 367,
+                    url: 'http://placehold.it/367?text=♥'
+                  },
+                  {
+                    width: 630,
+                    url: 'http://placehold.it/630?text=♥'
+                  }
+                ]} />
           </div>
           <script src='//localhost:8080/build/react-pic.js' />
         </body>
