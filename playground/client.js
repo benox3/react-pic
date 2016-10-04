@@ -6,4 +6,4 @@ ReactDOM.render(
   React.createElement(
     Component
   ), document
-)
+);
