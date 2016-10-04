@@ -11,6 +11,10 @@
     "server": "nodemon --exec babel-node playground/server",
     "playground": "npm-run-all -p server dev-server"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benox3/react-pic.git"
+  },
   "keywords": [
     "react",
     "pic",
