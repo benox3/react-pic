@@ -5,18 +5,34 @@
   "author": "Ben Budnevich",
   "main": "index.js",
   "scripts": {
+    "dev-server": "webpack-dev-server --config webpack.config.dev.js --progress --colors",
     "test": "mocha",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "server": "nodemon --exec babel-node -- playground/server",
+    "playground": "npm-run-all -p server dev-server"
   },
   "keywords": [
     "npm",
     "package",
     "template"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
   "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
     "eslint": "^3.4.0",
-    "mocha": "^3.0.2"
+    "express": "^4.14.0",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.2",
+    "npm-run-all": "^3.1.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
   },
   "license": "MIT"
 }
