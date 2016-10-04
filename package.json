@@ -8,15 +8,20 @@
     "dev-server": "webpack-dev-server --config webpack.config.dev.js --progress --colors",
     "test": "mocha",
     "lint": "eslint .",
-    "server": "nodemon --exec babel-node -- playground/server",
+    "server": "nodemon --exec babel-node playground/server",
     "playground": "npm-run-all -p server dev-server"
   },
   "keywords": [
-    "npm",
-    "package",
-    "template"
+    "react",
+    "pic",
+    "picture",
+    "image",
+    "img",
+    "progressive",
+    "loading",
+    "responsive"
   ],
-  "dependencies": {
+  "peerDependencies": {
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
@@ -31,6 +36,8 @@
     "mocha": "^3.0.2",
     "nodemon": "^1.10.2",
     "npm-run-all": "^3.1.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
   },
