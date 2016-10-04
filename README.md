@@ -5,7 +5,7 @@ A responsive image loading component.
 ## Installation
 
 ```sh
-$ npm install
+npm install react-pic --save
 ```
 
 ## Testing
