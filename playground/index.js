@@ -1,6 +1,7 @@
+'use strict';
+
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import Pic from '../index.js';
+import Pic from '../lib/index.js';
 
 export default class Playground extends Component {
   render() {
