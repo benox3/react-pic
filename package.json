@@ -9,7 +9,7 @@
     "test": "mocha",
     "lint": "eslint .",
     "start": "nodemon --exec babel-node playground/server",
-    "playground": "npm-run-all -p server dev-server"
+    "playground": "npm-run-all -p start dev-server"
   },
   "repository": {
     "type": "git",
