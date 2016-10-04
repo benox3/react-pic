@@ -1,7 +1,7 @@
 import React from 'react';
 import Playground from './index.js';
 import express from 'express'
-import ReactDOMServer = require('react-dom/server');
+import ReactDOMServer from 'react-dom/server';
 
 const app = express();
 const port = 8000;
