@@ -27,9 +27,6 @@
   ],
   "bugs": {
     "url" : "https://github.com/benox3/react-pic/issues"
-  "peerDependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
@@ -46,6 +43,10 @@
     "react-dom": "^15.3.2",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
+  },
+  "peerDependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
   },
   "license": "MIT"
 }
