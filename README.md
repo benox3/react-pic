@@ -6,8 +6,17 @@ A responsive image loading component.
 
 ## Installation
 
+#### NPM:
 ```sh
 npm install react-pic --save
+```
+
+#### CDN:
+```html
+<script src='https://unpkg.com/react-pic@0.0.1/dist/react-pic.js'></script>
+
+<!-- or use minified -->
+<script src='https://unpkg.com/react-pic@0.0.1/dist/react-pic.min.js'></script>
 ```
 
 ## Testing
