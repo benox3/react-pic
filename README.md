@@ -56,6 +56,10 @@ export default class Example extends Component {
 $ npm test
 ```
 
+## Special Thanks
+
+- To [remarkablemark](https://github.com/remarkablemark) and [tdlm](https://github.com/tdlm) for their feedback and review.
+
 ## License
 
 MIT
