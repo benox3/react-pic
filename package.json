@@ -1,9 +1,9 @@
 {
   "name": "react-pic",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A responsive image loading component.",
   "author": "Ben Budnevich",
-  "main": "index.js",
+  "main": "dist/react-pic.js",
   "scripts": {
     "build": "npm run build:umd && npm run build:umd:min",
     "build:umd": "cross-env NODE_ENV=development webpack lib/index.js dist/react-pic.js",
