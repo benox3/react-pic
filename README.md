@@ -62,4 +62,4 @@ $ npm test
 
 ## License
 
-MIT
+[MIT](https://github.com/benox3/react-pic/blob/master/LICENSE)
