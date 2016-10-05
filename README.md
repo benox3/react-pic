@@ -1,5 +1,9 @@
 # react-pic
 
+[![NPM](https://nodei.co/npm/react-pic.png)](https://nodei.co/npm/react-pic/)
+
+[![NPM version](https://img.shields.io/npm/v/react-pic.svg)](https://www.npmjs.com/package/react-pic)
+[![Build Status](https://travis-ci.org/benox3/react-pic.svg?branch=master)](https://travis-ci.org/benox3/react-pic)
 [![Coverage Status](https://coveralls.io/repos/github/benox3/react-pic/badge.svg?branch=master)](https://coveralls.io/github/benox3/react-pic?branch=master)
 
 A responsive image loading component.
