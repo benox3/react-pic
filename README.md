@@ -42,6 +42,14 @@ export default class Example extends Component {
 }
 ```
 
+## Props
+
+| name         | required | type   | description                                                                                                                |
+|--------------|----------|--------|----------------------------------------------------------------------------------------------------------------------------|
+| images       | true     | Array  | The collection of images you would like to use as a source.                                                                |
+| defaultIndex | false    | Number | The image object to use on initial render.                                                                                 |
+| style        | false    | Object | Override the style object. **This will remove the default style:** `{ margin: '0 auto', maxWidth: '100%', width: '100%' }` |
+
 ## Testing
 
 ```sh
