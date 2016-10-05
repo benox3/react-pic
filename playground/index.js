@@ -14,6 +14,7 @@ export default class Playground extends Component {
         <body>
           <div id="root">
             <Pic
+                alt='heart'
                 images={[
                   {
                     width: 290,

@@ -7,6 +7,7 @@ import { spy } from 'sinon';
 describe('Pic', function() {
   it('should render the first image in images', function() {
     const props = {
+      alt: 'heart',
       images: [
         {
           width: 290,
@@ -25,6 +26,7 @@ describe('Pic', function() {
 
     expect(pic.contains(
       <img
+        alt={props.alt}
         style={pic.props().style}
         src={props.images[0].url} />
     )).to.equal(true);
@@ -32,6 +34,7 @@ describe('Pic', function() {
 
   it('should render the second image in images', function() {
     const props = {
+      alt: 'heart',
       defaultIndex: 1,
       images: [
         {
@@ -51,6 +54,7 @@ describe('Pic', function() {
 
     expect(pic.contains(
       <img
+        alt={props.alt}
         style={pic.props().style}
         src={props.images[1].url} />
     )).to.equal(true);
