@@ -8,7 +8,7 @@
 
 A responsive image loading component.
 
-react-pic works universally. On the server-side it works by setting a default image (usually something very small to reduce data). On the client-side it will try to load the optimal image based on [prop data](#Props).
+react-pic works universally. On the server-side, it works by setting a default image (usually something very small to reduce data). On the client-side, it will try to load the optimal image based on [prop data](#Props).
 
 ## Installation
 
