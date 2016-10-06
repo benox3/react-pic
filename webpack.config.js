@@ -22,8 +22,7 @@ const config = {
   },
   externals: {
     'react': 'React',
-    'react-dom': 'ReactDOM',
-    'react-addons-shallow-compare': 'var React.addons.shallowCompare'
+    'react-dom': 'ReactDOM'
   }
 };
 
