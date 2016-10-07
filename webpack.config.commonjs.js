@@ -2,11 +2,16 @@ const webpack = require('webpack');
 const env = process.env.NODE_ENV;
 
 const config = {
+  entry: [
+    'babel-polyfill',
+    './lib/index.js'
+  ],
   devtool: 'source-map',
   output: {
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs',
     library: 'Pic'
   },
+  target: 'node',
   plugins: [],
   module: {
     loaders: [
@@ -21,18 +26,8 @@ const config = {
     ]
   },
   externals: {
-    'react': {
-      root: 'React',
-      amd: 'react',
-      commonjs2: 'react',
-      commonjs: 'react'
-    },
-    'react-dom': {
-      root: 'ReactDOM',
-      amd: 'react-dom',
-      commonjs2: 'react-dom',
-      commonjs: 'react-dom'
-    }
+    'react': 'react',
+    'react-dom/server': 'react-dom/server'
   }
 };
 

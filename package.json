@@ -5,9 +5,10 @@
   "author": "Ben Budnevich",
   "main": "dist/react-pic.js",
   "scripts": {
-    "build": "npm run build:umd && npm run build:umd:min",
-    "build:umd": "cross-env NODE_ENV=development webpack lib/index.js dist/react-pic.js",
-    "build:umd:min": "cross-env NODE_ENV=production webpack lib/index.js dist/react-pic.min.js",
+    "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min",
+    "build:commonjs": "cross-env NODE_ENV=development webpack --config webpack.config.commonjs.js dist/commonjs/react-pic.js",
+    "build:umd": "cross-env NODE_ENV=development webpack --config webpack.config.umd.js dist/umd/react-pic.js",
+    "build:umd:min": "cross-env NODE_ENV=production webpack --config webpack.config.umd.js dist/umd/react-pic.min.js",
     "clean": "npm run clean:coverage && npm run clean:dist",
     "clean:coverage": "rimraf coverage",
     "clean:dist": "rimraf dist",
@@ -48,6 +49,7 @@
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "chai": "^3.5.0",
+    "core-js": "^2.4.1",
     "coveralls": "^2.11.14",
     "cross-env": "^1.0.7",
     "enzyme": "^2.4.1",
@@ -69,6 +71,9 @@
   "peerDependencies": {
     "react": "0.14.x || ^15.0.0-0 || 15.x",
     "react-dom": "0.14.x || ^15.0.0-0 || 15.x"
+  },
+  "browser": {
+    "./lib/ImageServer.js": "./lib/ImageClient.js"
   },
   "license": "MIT"
 }
