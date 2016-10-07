@@ -17,24 +17,24 @@ export default class Playground extends Component {
                 alt='heart'
                 images={[
                   {
-                    width: 290,
-                    url: 'http://placehold.it/290?text=♥'
+                    width: 40,
+                    url: 'http://placehold.it/40?text=♥'
                   },
                   {
-                    width: 300,
-                    url: 'http://placehold.it/300?text=♥'
+                    width: 200,
+                    url: 'http://placehold.it/200?text=♥'
                   },
                   {
-                    width: 353,
-                    url: 'http://placehold.it/353?text=♥'
+                    width: 400,
+                    url: 'http://placehold.it/400?text=♥'
                   },
                   {
-                    width: 367,
-                    url: 'http://placehold.it/367?text=♥'
+                    width: 600,
+                    url: 'http://placehold.it/600?text=♥'
                   },
                   {
-                    width: 630,
-                    url: 'http://placehold.it/630?text=♥'
+                    width: 800,
+                    url: 'http://placehold.it/800?text=♥'
                   }
                 ]} />
           </div>
