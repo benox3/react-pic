@@ -19,10 +19,10 @@ npm install react-pic --save
 
 #### CDN:
 ```html
-<script src='https://unpkg.com/react-pic@0.0.1/dist/react-pic.js'></script>
+<script src='https://unpkg.com/react-pic@0.0.1/dist/umd/react-pic.js'></script>
 
 <!-- or use minified -->
-<script src='https://unpkg.com/react-pic@0.0.1/dist/react-pic.min.js'></script>
+<script src='https://unpkg.com/react-pic@0.0.1/dist/umd/react-pic.min.js'></script>
 ```
 
 ## Usage
@@ -53,7 +53,9 @@ export default class Example extends Component {
 | name         | required | type   | description                                                                                                                |
 |--------------|----------|--------|----------------------------------------------------------------------------------------------------------------------------|
 | images       | true     | Array  | The collection of images you would like to use as a source.                                                                |
-| defaultIndex | false    | Number | The image object to use on initial render.                                                                                 |
+| alt       | false     | string  | Text equivalent of the image. https://www.w3.org/QA/Tips/altAttribute                                                                |
+| defaultIndex | false    | Number | The image object to use on initial render. **Default is 0**                                                                                 |
+| noscriptIndex | false    | Number | The image object to use on noscript render. **Default is last image in images**                                                                                 |
 | style        | false    | Object | Override the style object. **This will remove the default style:** `{ margin: '0 auto', maxWidth: '100%', width: '100%' }` |
 
 ## Testing
