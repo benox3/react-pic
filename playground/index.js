@@ -14,27 +14,27 @@ export default class Playground extends Component {
         <body>
           <div id="root">
             <Pic
-                alt='heart'
+                alt='winky face'
                 images={[
                   {
                     width: 40,
-                    url: 'http://placehold.it/40?text=♥'
+                    url: 'http://placehold.it/40?text=😉'
                   },
                   {
                     width: 200,
-                    url: 'http://placehold.it/200?text=♥'
+                    url: 'http://placehold.it/200?text=😉'
                   },
                   {
                     width: 400,
-                    url: 'http://placehold.it/400?text=♥'
+                    url: 'http://placehold.it/400?text=😉'
                   },
                   {
                     width: 600,
-                    url: 'http://placehold.it/600?text=♥'
+                    url: 'http://placehold.it/600?text=😉'
                   },
                   {
                     width: 800,
-                    url: 'http://placehold.it/800?text=♥'
+                    url: 'http://placehold.it/800?text=😉'
                   }
                 ]} />
           </div>
