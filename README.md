@@ -19,10 +19,10 @@ npm install react-pic --save
 
 #### CDN:
 ```html
-<script src='https://unpkg.com/react-pic@0.0.1/dist/react-pic.js'></script>
+<script src='https://unpkg.com/react-pic@0.0.1/dist/umd/react-pic.js'></script>
 
 <!-- or use minified -->
-<script src='https://unpkg.com/react-pic@0.0.1/dist/react-pic.min.js'></script>
+<script src='https://unpkg.com/react-pic@0.0.1/dist/umd/react-pic.min.js'></script>
 ```
 
 ## Usage
