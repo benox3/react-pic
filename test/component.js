@@ -24,10 +24,9 @@ describe('Pic', function() {
       <Pic { ...props } />
     );
 
-    expect(pic.contains(
+    expect(pic.containsMatchingElement(
       <img
         alt={props.alt}
-        style={pic.props().style}
         src={props.images[0].url} />
     )).to.equal(true);
   });
@@ -52,10 +51,9 @@ describe('Pic', function() {
       <Pic { ...props } />
     );
 
-    expect(pic.contains(
+    expect(pic.containsMatchingElement(
       <img
         alt={props.alt}
-        style={pic.props().style}
         src={props.images[1].url} />
     )).to.equal(true);
   });
