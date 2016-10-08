@@ -6,7 +6,7 @@
 [![Build Status](https://travis-ci.org/benox3/react-pic.svg?branch=master)](https://travis-ci.org/benox3/react-pic)
 [![Coverage Status](https://coveralls.io/repos/github/benox3/react-pic/badge.svg?branch=master)](https://coveralls.io/github/benox3/react-pic?branch=master)
 
-A responsive image loading component.
+React component for progressive and responsive image loading.
 
 react-pic works universally. On the server-side, it works by setting a default image (usually something very small to reduce data). On the client-side, it will try to load the optimal image based on [prop data](#Props).
 
