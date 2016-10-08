@@ -35,7 +35,8 @@
     "img",
     "progressive",
     "loading",
-    "responsive"
+    "responsive",
+    "universal"
   ],
   "bugs": {
     "url": "https://github.com/benox3/react-pic/issues"
