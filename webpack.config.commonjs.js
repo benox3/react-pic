@@ -3,7 +3,6 @@ const env = process.env.NODE_ENV;
 
 const config = {
   entry: [
-    'babel-polyfill',
     './lib/index.js'
   ],
   devtool: 'source-map',

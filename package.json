@@ -1,7 +1,7 @@
 {
   "name": "react-pic",
-  "version": "0.0.7",
-  "description": "A responsive image loading component.",
+  "version": "0.0.8",
+  "description": "React component for progressive and responsive image loading.",
   "author": "Ben Budnevich",
   "main": "dist/commonjs/react-pic.js",
   "scripts": {
@@ -35,7 +35,8 @@
     "img",
     "progressive",
     "loading",
-    "responsive"
+    "responsive",
+    "universal"
   ],
   "bugs": {
     "url": "https://github.com/benox3/react-pic/issues"
