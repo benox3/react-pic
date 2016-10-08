@@ -58,12 +58,6 @@ export default class Example extends Component {
 | noscriptIndex | false    | Number | The image object to use on noscript render. **Default is last image in images**                                                                                 |
 | style        | false    | Object | Override the style object. **This will remove the default style:** `{ margin: '0 auto', maxWidth: '100%', width: '100%' }` |
 
-## Testing
-
-```sh
-$ npm test
-```
-
 ## Special Thanks
 
 - To [remarkablemark](https://github.com/remarkablemark) and [tdlm](https://github.com/tdlm) for their feedback and review.
