@@ -131,7 +131,7 @@ describe('Pic', function() {
     expect(Pic.prototype.setResponsiveImage).to.have.property('callCount', 1);
   });
 
-  it('should set blur by default', function() {
+  it('should set blur to false by default', function() {
     const props = {
       images: [
         {
@@ -150,12 +150,12 @@ describe('Pic', function() {
 
     expect(
       pic.find('img').last().attr('style')
-    ).to.contain('blur');
+    ).to.not.contain('blur');
   });
 
-  it('should not set blur style based if shouldBlur prop is false', function() {
+  it('should set blur style based if shouldBlur prop is true', function() {
     const props = {
-      shouldBlur: false,
+      shouldBlur: true,
       blurAmmount: '10px',
       images: [
         {
@@ -174,11 +174,12 @@ describe('Pic', function() {
 
     expect(
       pic.find('img').last().attr('style')
-    ).to.not.contain(`blur(${props.blurAmmount});`);
+    ).to.contain(`blur(${props.blurAmmount});`);
   });
 
   it('should set blur style based on blurAmmount prop', function() {
     const props = {
+      shouldBlur: true,
       blurAmmount: '20px',
       images: [
         {
