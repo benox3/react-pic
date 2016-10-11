@@ -28,6 +28,12 @@ const config = {
       amd: 'react',
       commonjs2: 'react',
       commonjs: 'react'
+    },
+    'react-addons-shallow-compare': {
+      root: 'React.addons.shallowCompare',
+      amd: 'react-addons-shallow-compare',
+      commonjs2: 'react-addons-shallow-compare',
+      commonjs: 'react-addons-shallow-compare'
     }
   }
 };
