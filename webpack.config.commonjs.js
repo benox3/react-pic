@@ -7,7 +7,7 @@ const config = {
   ],
   devtool: 'source-map',
   output: {
-    libraryTarget: 'commonjs',
+    libraryTarget: 'commonjs2',
     library: 'Pic'
   },
   target: 'node',
