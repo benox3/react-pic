@@ -67,13 +67,13 @@ describe('Utils', function() {
           right : 0,
           bottom : 0
         };
-      }
-    })
+      };
+    });
+
     it('should return true when element is in view', function() {
       const wrapper = mount(
         <div />
       );
-      //console.log(ReactDOM.findDOMNode(pic.instance()).querySelector('img'));
 
       window.HTMLDivElement.prototype.getBoundingClientRect = function() {
         return {
@@ -82,10 +82,10 @@ describe('Utils', function() {
           right : 250,
           bottom : 250
         };
-      }
+      };
 
       expect(isElementInView(ReactDOM.findDOMNode(wrapper.instance()))).to.equal(true);
-    })
+    });
 
     it('should return false when element is not in view', function() {
       const wrapper = mount(
@@ -98,10 +98,10 @@ describe('Utils', function() {
           top :  10000,
           right : 250,
           bottom : 250
-        }
+        };
       };
 
       expect(isElementInView(ReactDOM.findDOMNode(wrapper.instance()))).to.equal(false);
-    })
+    });
   });
 });

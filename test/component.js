@@ -109,4 +109,73 @@ describe('Pic', function() {
 
     expect(Pic.prototype.inViewHandler).to.have.property('callCount', 1);
   });
+
+  it('should set blur by default', function() {
+    const props = {
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+    const pic = render(
+      <Pic { ...props } />
+    );
+
+    expect(
+      pic.find('img').last().attr('style')
+    ).to.contain('blur');
+  });
+
+  it('should not set blur style based if shouldBlur prop is false', function() {
+    const props = {
+      shouldBlur: false,
+      blurAmmount: '10px',
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+    const pic = render(
+      <Pic { ...props } />
+    );
+
+    expect(
+      pic.find('img').last().attr('style')
+    ).to.not.contain(`blur(${props.blurAmmount});`);
+  });
+
+  it('should set blur style based on blurAmmount prop', function() {
+    const props = {
+      blurAmmount: '20px',
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+    const pic = render(
+      <Pic { ...props } />
+    );
+
+    expect(
+      pic.find('img').last().attr('style')
+    ).to.contain(`blur(${props.blurAmmount});`);
+  });
 });
