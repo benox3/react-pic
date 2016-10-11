@@ -1,6 +1,10 @@
 import { expect } from 'chai';
 import getResponsiveImage from '../lib/utils/getResponsiveImage';
 import debounce from '../lib/utils/debounce';
+import isElementInView from '../lib/utils/isElementInView';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { mount } from 'enzyme';
 
 describe('Utils', function() {
   describe('getResponsiveImage', function() {
@@ -51,7 +55,53 @@ describe('Utils', function() {
         expect(counter).to.equal(1);
         done();
       }, 100);
+    });
+  });
 
+  describe('isElementInView', function() {
+    afterEach(function(){
+      window.HTMLDivElement.prototype.getBoundingClientRect = function() {
+        return {
+          left : 0,
+          top :  0,
+          right : 0,
+          bottom : 0
+        };
+      };
+    });
+
+    it('should return true when element is in view', function() {
+      const wrapper = mount(
+        <div />
+      );
+
+      window.HTMLDivElement.prototype.getBoundingClientRect = function() {
+        return {
+          left : 0,
+          top :  0,
+          right : 250,
+          bottom : 250
+        };
+      };
+
+      expect(isElementInView(ReactDOM.findDOMNode(wrapper.instance()))).to.equal(true);
+    });
+
+    it('should return false when element is not in view', function() {
+      const wrapper = mount(
+        <div />
+      );
+
+      window.HTMLDivElement.prototype.getBoundingClientRect = function() {
+        return {
+          left : 0,
+          top :  10000,
+          right : 250,
+          bottom : 250
+        };
+      };
+
+      expect(isElementInView(ReactDOM.findDOMNode(wrapper.instance()))).to.equal(false);
     });
   });
 });

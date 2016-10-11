@@ -90,8 +90,29 @@ describe('Pic', function() {
     expect(pic.find('img')).to.have.length(0);
   });
 
-  it('should setResponsiveImage image once mounted', function() {
+  it('should check if image is in view once mounted', function() {
     const props = {
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+
+    spy(Pic.prototype, 'inViewHandler');
+    mount(<Pic { ...props } />);
+
+    expect(Pic.prototype.inViewHandler).to.have.property('callCount', 1);
+  });
+
+  it('should set optimal image if renderOutOfView is true', function() {
+    const props = {
+      renderOutOfView: true,
       images: [
         {
           width: 290,
@@ -108,5 +129,124 @@ describe('Pic', function() {
     mount(<Pic { ...props } />);
 
     expect(Pic.prototype.setResponsiveImage).to.have.property('callCount', 1);
+  });
+
+  it('should set blur by default', function() {
+    const props = {
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+    const pic = render(
+      <Pic { ...props } />
+    );
+
+    expect(
+      pic.find('img').last().attr('style')
+    ).to.contain('blur');
+  });
+
+  it('should not set blur style based if shouldBlur prop is false', function() {
+    const props = {
+      shouldBlur: false,
+      blurAmmount: '10px',
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+    const pic = render(
+      <Pic { ...props } />
+    );
+
+    expect(
+      pic.find('img').last().attr('style')
+    ).to.not.contain(`blur(${props.blurAmmount});`);
+  });
+
+  it('should set blur style based on blurAmmount prop', function() {
+    const props = {
+      blurAmmount: '20px',
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+    const pic = render(
+      <Pic { ...props } />
+    );
+
+    expect(
+      pic.find('img').last().attr('style')
+    ).to.contain(`blur(${props.blurAmmount});`);
+  });
+
+  it('should override img style if imgStyle prop is set', function() {
+    const props = {
+      imgStyle: {
+        backgroundColor: 'red'
+      },
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+    const pic = render(
+      <Pic { ...props } />
+    );
+
+    expect(
+      pic.find('img').last().attr('style')
+    ).to.contain(`background-color:${props.imgStyle.backgroundColor};`);
+  });
+
+  it('should override container style if baseStyle prop is set', function() {
+    const props = {
+      baseStyle: {
+        backgroundColor: 'red'
+      },
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+    const pic = render(
+      <Pic { ...props } />
+    );
+
+    expect(
+      pic.find('div').first().attr('style')
+    ).to.contain(`background-color:${props.baseStyle.backgroundColor};`);
   });
 });

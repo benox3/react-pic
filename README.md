@@ -1,7 +1,5 @@
 # react-pic
 
-[![NPM](https://nodei.co/npm/react-pic.png)](https://nodei.co/npm/react-pic/)
-
 [![NPM version](https://img.shields.io/npm/v/react-pic.svg)](https://www.npmjs.com/package/react-pic)
 [![Build Status](https://travis-ci.org/benox3/react-pic.svg?branch=master)](https://travis-ci.org/benox3/react-pic)
 [![Coverage Status](https://coveralls.io/repos/github/benox3/react-pic/badge.svg?branch=master)](https://coveralls.io/github/benox3/react-pic?branch=master)
@@ -50,13 +48,17 @@ export default class Example extends Component {
 
 ## Props
 
-| name         | required | type   | description                                                                                                                |
-|--------------|----------|--------|----------------------------------------------------------------------------------------------------------------------------|
-| images       | true     | Array  | The collection of images you would like to use as a source.                                                                |
-| alt       | false     | string  | Text equivalent of the image. https://www.w3.org/QA/Tips/altAttribute                                                                |
-| defaultIndex | false    | Number | The image object to use on initial render. **Default is 0**                                                                                 |
-| noscriptIndex | false    | Number | The image object to use on noscript render. **Default is last image in images**                                                                                 |
-| style        | false    | Object | Override the style object. **This will remove the default style:** `{ margin: '0 auto', maxWidth: '100%', width: '100%' }` |
+| name         | default | required | type   | description                                                                                                                |
+|--------------|----------|--------|----------|-----------------------------------------------------------------------------------------------------------------|
+| images       | | true     | array  | The collection of images you would like to use as a source.                                                                |
+| alt       | | false     | string  | Text equivalent of the image. https://www.w3.org/QA/Tips/altAttribute                                                                |
+| defaultIndex |  0 | false    | number | The image object to use on initial render.                                                                                 |
+| noscriptIndex | `images.length-1` | false    | number | The image object to use on noscript render.                                                                                 |
+| baseStyle        | `{ position: 'relative', margin: '-5px', overflow: 'hidden' }` | false    | object | Override the container style object. |
+| imgStyle        | `{ margin: '0 auto', maxWidth: '100%', width: '100%' }` | false    | object | Override the image style object. |
+| shouldBlur        | true | false    | boolean | Determines if the image should be blurred before setting the optimal image. |
+| blurAmmount        | '10px' | false    | string | The ammount of blur. Expected format: '10px' or '15%'. |
+| renderOutOfView        | false | false    | boolean | Determines if the optimal image should be selected even if not in view |
 
 ## Special Thanks
 
