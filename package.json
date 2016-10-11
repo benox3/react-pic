@@ -41,9 +41,6 @@
   "bugs": {
     "url": "https://github.com/benox3/react-pic/issues"
   },
-  "dependencies": {
-    "react-addons-shallow-compare": "0.14.x || ^15.0.0-0 || 15.x"
-  },
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
@@ -74,7 +71,8 @@
   },
   "peerDependencies": {
     "react": "0.14.x || ^15.0.0-0 || 15.x",
-    "react-dom": "0.14.x || ^15.0.0-0 || 15.x"
+    "react-dom": "0.14.x || ^15.0.0-0 || 15.x",
+    "react-addons-shallow-compare": "0.14.x || ^15.0.0-0 || 15.x"
   },
   "browser": {
     "./lib/server/index.js": "./lib/client/index.js"
