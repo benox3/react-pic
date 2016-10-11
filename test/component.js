@@ -199,4 +199,54 @@ describe('Pic', function() {
       pic.find('img').last().attr('style')
     ).to.contain(`blur(${props.blurAmmount});`);
   });
+
+  it('should override img style if imgStyle prop is set', function() {
+    const props = {
+      imgStyle: {
+        backgroundColor: 'red'
+      },
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+    const pic = render(
+      <Pic { ...props } />
+    );
+
+    expect(
+      pic.find('img').last().attr('style')
+    ).to.contain(`background-color:${props.imgStyle.backgroundColor};`);
+  });
+
+  it('should override container style if baseStyle prop is set', function() {
+    const props = {
+      baseStyle: {
+        backgroundColor: 'red'
+      },
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+    const pic = render(
+      <Pic { ...props } />
+    );
+
+    expect(
+      pic.find('div').first().attr('style')
+    ).to.contain(`background-color:${props.baseStyle.backgroundColor};`);
+  });
 });
