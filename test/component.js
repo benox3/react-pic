@@ -90,7 +90,7 @@ describe('Pic', function() {
     expect(pic.find('img')).to.have.length(0);
   });
 
-  it('should setResponsiveImage image once mounted', function() {
+  it('should check if image is in view once mounted', function() {
     const props = {
       images: [
         {
@@ -104,9 +104,9 @@ describe('Pic', function() {
       ]
     };
 
-    spy(Pic.prototype, 'setResponsiveImage');
+    spy(Pic.prototype, 'inViewHandler');
     mount(<Pic { ...props } />);
 
-    expect(Pic.prototype.setResponsiveImage).to.have.property('callCount', 1);
+    expect(Pic.prototype.inViewHandler).to.have.property('callCount', 1);
   });
 });
