@@ -110,6 +110,27 @@ describe('Pic', function() {
     expect(Pic.prototype.inViewHandler).to.have.property('callCount', 1);
   });
 
+  it('should set optimal image if renderOutOfView is true', function() {
+    const props = {
+      renderOutOfView: true,
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+
+    spy(Pic.prototype, 'setResponsiveImage');
+    mount(<Pic { ...props } />);
+
+    expect(Pic.prototype.setResponsiveImage).to.have.property('callCount', 1);
+  });
+
   it('should set blur by default', function() {
     const props = {
       images: [
