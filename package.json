@@ -1,6 +1,6 @@
 {
   "name": "react-pic",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "React component for progressive and responsive image loading.",
   "author": "Ben Budnevich",
   "main": "dist/commonjs/react-pic.js",
