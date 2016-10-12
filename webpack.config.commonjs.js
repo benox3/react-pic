@@ -25,9 +25,7 @@ const config = {
     ]
   },
   externals: {
-    'react': 'react',
-    'react-dom/server': 'react-dom/server',
-    'react-addons-shallow-compare': 'react-addons-shallow-compare'
+    'react': 'react'
   }
 };
 
