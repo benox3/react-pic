@@ -2,9 +2,10 @@ import { expect } from 'chai';
 import getResponsiveImage from '../lib/utils/getResponsiveImage';
 import debounce from '../lib/utils/debounce';
 import isElementInView from '../lib/utils/isElementInView';
+import convertReactToHTMLStyle from '../lib/utils/convertReactToHTMLStyle';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 
 describe('Utils', function() {
   describe('getResponsiveImage', function() {
@@ -102,6 +103,70 @@ describe('Utils', function() {
       };
 
       expect(isElementInView(ReactDOM.findDOMNode(wrapper.instance()))).to.equal(false);
+    });
+  });
+
+  describe('convertReactToHTMLStyle', function() {
+    it('converts vendor prefixes correctly', function() {
+      const style = {
+        WebkitTransition: 'all',
+        msTransition: 'all',
+        MozTransition: 'all',
+        OTransition: 'all'
+      };
+      const wrapper = render(
+        <div style={style}></div>
+      );
+
+      expect(
+        convertReactToHTMLStyle(style)
+      ).to.equal(
+        wrapper.find('div').attr('style')
+      );
+    });
+
+    it('converts single style correctly', function() {
+      const style = {
+        display: 'none'
+      };
+      const wrapper = render(
+        <div style={style}></div>
+      );
+
+      expect(
+        convertReactToHTMLStyle(style)
+      ).to.equal(
+        wrapper.find('div').attr('style')
+      );
+    });
+
+    it('converts multiple styles correctly', function() {
+      const style = {
+        display: 'none',
+        visibility: 'hidden'
+      };
+      const wrapper = render(
+        <div style={style}></div>
+      );
+
+      expect(
+        convertReactToHTMLStyle(style)
+      ).to.equal(
+        wrapper.find('div').attr('style')
+      );
+    });
+
+    it('converts empty style correctly', function() {
+      const style = {};
+      const wrapper = render(
+        <div style={style}></div>
+      );
+
+      expect(
+        convertReactToHTMLStyle(style)
+      ).to.equal(
+        wrapper.find('div').attr('style') || ''
+      );
     });
   });
 });
