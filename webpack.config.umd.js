@@ -30,7 +30,7 @@ const config = {
       commonjs: 'react'
     },
     'react-addons-shallow-compare': {
-      root: 'React.addons.shallowCompare',
+      root: ['React', 'addons', 'shallowCompare'],
       amd: 'react-addons-shallow-compare',
       commonjs2: 'react-addons-shallow-compare',
       commonjs: 'react-addons-shallow-compare'
