@@ -23,6 +23,9 @@ npm install react-pic --save
 <script src='https://unpkg.com/react-pic@latest/dist/umd/react-pic.min.js'></script>
 ```
 
+## Demo:
+![demo-image](https://thumbs.gfycat.com/MajesticFinishedAlpinegoat-size_restricted.gif)
+
 ## Usage
 ```javascript
 import React, { Component } from 'react';
