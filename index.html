@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href='styles.css' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div class='container'>
+            <a href="https://github.com/benox3/react-pic"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+            <div id='title' class='jumbotron bg-darkblue'>
+              <h1 class='title'>react-pic</h1>
+              <h2>A React component for progressive and responsive image loading.</h2>
+            </div>
+
+            <div id='summary' class="panel panel-default">
+              <div class="panel-heading">Summary</div>
+              <div class="panel-body">
+                react-pic works universally. On the server-side, it works by setting a default image (usually something very small to reduce data). On the client-side, it will try to load the optimal image based on prop data.
+              </div>
+            </div>
+
+            <div id='demo' class="panel panel-default">
+              <div class="panel-heading">Demo</div>
+              <div class="panel-body">
+                <img src='https://thumbs.gfycat.com/MajesticFinishedAlpinegoat-size_restricted.gif' alt='server-render'>
+              </div>
+            </div>
+
+            <div id='server-usage' class="panel panel-default">
+              <div class="panel-heading">Server-side usage</div>
+              <div class="panel-body">
+                <pre>
+import React, { Component } from 'react';
+import Pic from 'react-pic';
+
+const images = [
+  {
+    width: 40,
+    url: 'http://placehold.it/40?text=♥'
+  },
+  {
+    width: 250,
+    url: 'http://placehold.it/250?text=♥'
+  }
+];
+
+export default class Example extends Component {
+  render() {
+    return &lt;Pic images={images} /&gt;;
+  }
+}
+              </pre>
+              </div>
+            </div>
+
+            <div id='client-usage' class="panel panel-default">
+              <div class="panel-heading">Client-side usage</div>
+              <div class="panel-body">
+                <script async src="https://jsfiddle.net/bbud/vejaa7uL/6/embed/js,html,css,result/dark/"></script>
+              </div>
+            </div>
+        </div>
+    </body>
+</html>

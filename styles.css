@@ -1,0 +1,19 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+}
+
+p {
+    font-size:15px;
+    font-family: 'Lato', sans-serif;
+}
+
+iframe {
+    width: 100%;
+    min-height: 500px;
+}
+
+.bg-darkblue {
+    color:white;
+    background-color: #212e54;;
+}
