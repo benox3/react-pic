@@ -107,7 +107,7 @@ describe('Pic', function() {
     spy(Pic.prototype, 'inViewHandler');
     mount(<Pic { ...props } />);
 
-    expect(Pic.prototype.inViewHandler).to.have.property('callCount', 1);
+    expect(Pic.prototype.inViewHandler.callCount).to.equal(1);
   });
 
   it('should call componentWillUnmount when unmounted', function() {
@@ -148,7 +148,7 @@ describe('Pic', function() {
     spy(Pic.prototype, 'setResponsiveImage');
     mount(<Pic { ...props } />);
 
-    expect(Pic.prototype.setResponsiveImage).to.have.property('callCount', 1);
+    expect(Pic.prototype.setResponsiveImage.callCount).to.equal(1);
   });
 
   it('should set blur to false by default', function() {
