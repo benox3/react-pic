@@ -5,6 +5,16 @@ import Pic from '../lib/';
 import { spy } from 'sinon';
 
 describe('Pic', function() {
+  let sandbox;
+
+  beforeEach(function() {
+    sandbox = sinon.sandbox.create();
+  });
+
+  afterEach(function () {
+    sandbox.restore();
+  });
+
   it('should render the first image in images', function() {
     const props = {
       alt: 'heart',
