@@ -110,6 +110,26 @@ describe('Pic', function() {
     expect(Pic.prototype.inViewHandler).to.have.property('callCount', 1);
   });
 
+  it('should call componentWillUnmount when unmounted', function() {
+    const props = {
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: 'http://placehold.it/320?text=♥'
+        }
+      ]
+    };
+
+    spy(Pic.prototype, 'componentWillUnmount');
+    const wrapper = mount(<Pic { ...props } />);
+    wrapper.unmount();
+    expect(Pic.prototype.componentWillUnmount.callCount).to.equal(1);
+  });
+
   it('should set optimal image if renderOutOfView is true', function() {
     const props = {
       renderOutOfView: true,
