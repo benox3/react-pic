@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
 import Pic from '../lib/';
-import sinon, { spy } from 'sinon';
+import sinon from 'sinon';
 
 describe('Pic', function() {
   let sandbox;
@@ -114,7 +114,7 @@ describe('Pic', function() {
       ]
     };
 
-    spy(Pic.prototype, 'inViewHandler');
+    sandbox.spy(Pic.prototype, 'inViewHandler');
     mount(<Pic { ...props } />);
 
     expect(Pic.prototype.inViewHandler.callCount).to.equal(1);
@@ -134,7 +134,7 @@ describe('Pic', function() {
       ]
     };
 
-    spy(Pic.prototype, 'componentWillUnmount');
+    sandbox.spy(Pic.prototype, 'componentWillUnmount');
     const wrapper = mount(<Pic { ...props } />);
     wrapper.unmount();
     expect(Pic.prototype.componentWillUnmount.callCount).to.equal(1);
@@ -155,7 +155,7 @@ describe('Pic', function() {
       ]
     };
 
-    spy(Pic.prototype, 'setResponsiveImage');
+    sandbox.spy(Pic.prototype, 'setResponsiveImage');
     mount(<Pic { ...props } />);
 
     expect(Pic.prototype.setResponsiveImage.callCount).to.equal(1);
