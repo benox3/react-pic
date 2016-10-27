@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
 import Pic from '../lib/';
-import { spy } from 'sinon';
+import sinon, { spy } from 'sinon';
 
 describe('Pic', function() {
   let sandbox;
@@ -280,4 +280,56 @@ describe('Pic', function() {
       pic.find('div').first().attr('style')
     ).to.contain(`background-color:${props.baseStyle.backgroundColor};`);
   });
+
+  it('should not render if a url in images is not a string', function() {
+    const props = {
+      alt: 'heart',
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 320,
+          url: {}
+        }
+      ]
+    };
+
+    const wrapper = shallow(<Pic {...props} />);
+    expect(wrapper.find('img')).to.have.length(0);
+
+  });
+
+  it('should not render if a width in images is not a number', function() {
+    const props = {
+      alt: 'heart',
+      images: [
+        {
+          width: 290,
+          url: 'http://placehold.it/290?text=♥'
+        },
+        {
+          width: 'test',
+          url: 'http://placehold.it/290?text=♥'
+        }
+      ]
+    };
+
+    const wrapper = shallow(<Pic {...props} />);
+    expect(wrapper.find('img')).to.have.length(0);
+
+  });
+
+  it('should not render if no images passed through', function() {
+    const props = {
+      alt: 'heart',
+      images: []
+    };
+
+    const wrapper = shallow(<Pic {...props} />);
+    expect(wrapper.find('img')).to.have.length(0);
+
+  });
+
 });
