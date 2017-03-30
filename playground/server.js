@@ -14,5 +14,5 @@ app.get('/', function(req, resp) {
 });
 
 app.listen(port, function() {
-  console.log(`http://localhost:'${port}`); // eslint-disable-line no-console
+  console.log(`http://localhost:${port}`); // eslint-disable-line no-console
 });
