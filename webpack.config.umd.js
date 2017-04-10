@@ -4,7 +4,7 @@ const env = process.env.NODE_ENV;
 
 const config = {
   entry: [
-    'babel-polyfill',
+    'core-js/library/fn/array/reduce',
     './lib/index.js',
   ],
   output: {

@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   entry: [
-    'babel-polyfill',
+    'core-js/library/fn/array/reduce',
     './playground/client.js', // Your appʼs entry point
   ],
   target: 'node',
