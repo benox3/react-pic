@@ -1,5 +1,5 @@
-const path = require('path');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   entry: [
@@ -10,14 +10,14 @@ module.exports = {
   output: {
     publicPath: 'http://localhost:8080/build/',
     path: path.join(__dirname, 'build'),
-    filename: './react-pic.js'
+    filename: './react-pic.js',
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development')
-      }
-    })
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
   ],
   module: {
     loaders: [
@@ -28,8 +28,14 @@ module.exports = {
         query: {
           presets: ['es2015', 'react'],
           plugins: ['transform-object-rest-spread', 'transform-class-properties'],
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+    root: [
+      path.join(__dirname, './node_modules'),
+    ],
+  },
 };

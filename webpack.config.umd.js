@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+
 const env = process.env.NODE_ENV;
 
 const config = {
@@ -8,7 +9,7 @@ const config = {
   ],
   output: {
     libraryTarget: 'umd',
-    library: 'Pic'
+    library: 'Pic',
   },
   plugins: [],
   module: {
@@ -20,33 +21,33 @@ const config = {
         query: {
           presets: ['es2015', 'react'],
           plugins: ['transform-object-rest-spread', 'transform-class-properties'],
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   externals: {
-    'react': {
+    react: {
       root: 'React',
       amd: 'react',
       commonjs2: 'react',
-      commonjs: 'react'
+      commonjs: 'react',
     },
     'react-addons-shallow-compare': {
       root: ['React', 'addons', 'shallowCompare'],
       amd: 'react-addons-shallow-compare',
       commonjs2: 'react-addons-shallow-compare',
-      commonjs: 'react-addons-shallow-compare'
-    }
-  }
+      commonjs: 'react-addons-shallow-compare',
+    },
+  },
 };
 
 if (env === 'production') {
   config.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
-        warnings: false
-      }
-    })
+        warnings: false,
+      },
+    }),
   );
 }
 

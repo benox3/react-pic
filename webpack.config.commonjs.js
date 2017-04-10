@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+
 const env = process.env.NODE_ENV;
 
 const config = {
@@ -9,7 +10,7 @@ const config = {
   devtool: 'source-map',
   output: {
     libraryTarget: 'commonjs2',
-    library: 'Pic'
+    library: 'Pic',
   },
   target: 'node',
   plugins: [],
@@ -22,22 +23,22 @@ const config = {
         query: {
           presets: ['es2015', 'react'],
           plugins: ['transform-object-rest-spread', 'transform-class-properties'],
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   externals: {
-    'react': 'react'
-  }
+    react: 'react',
+  },
 };
 
 if (env === 'production') {
   config.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
-        warnings: false
-      }
-    })
+        warnings: false,
+      },
+    }),
   );
 }
 
