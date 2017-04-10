@@ -1,13 +1,65 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import getResponsiveImage from '../utils/getResponsiveImage';
 import debounce from '../utils/debounce';
 import isElementInView from '../utils/isElementInView';
-import ImageBase from '../server/index';
+import ImageWrapper from '../server/index';
 
 /**
  * Pic Component
  */
 export default class Pic extends Component {
+  /** Prop Types */
+  static propTypes = {
+    // The collection of images
+    images: PropTypes.arrayOf(
+      PropTypes.shape({
+        url: PropTypes.string.isRequired,
+        width: PropTypes.number.isRequired,
+      }).isRequired,
+    ).isRequired,
+    defaultIndex: PropTypes.number, // The default image to render
+    noscriptIndex: PropTypes.number, // The default image to render on noscript
+    alt: PropTypes.string,
+    imgStyle: PropTypes.objectOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+      ]),
+    ),
+    baseStyle: PropTypes.objectOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+      ]),
+    ),
+    shouldBlur: PropTypes.bool,
+    blurAmount: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+    renderOutOfView: PropTypes.bool,
+  };
+
+  /** Default Props */
+  static defaultProps = {
+    alt: '',
+    defaultIndex: 0,
+    shouldBlur: false,
+    blurAmount: '20px',
+    baseStyle: {
+      position: 'relative',
+      overflow: 'hidden',
+    },
+    imgStyle: {
+      margin: '0 auto',
+      maxWidth: '100%',
+      width: '100%',
+    },
+    images: [],
+    noscriptIndex: 0,
+    renderOutOfView: false,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -23,8 +75,8 @@ export default class Pic extends Component {
 
     // calls inViewHandler with a debounce
     this.debouncedInViewHandler = debounce(this.inViewHandler.bind(this), 150);
-
   }
+
   componentDidMount() {
     this.inViewHandler();
 
@@ -60,11 +112,11 @@ export default class Pic extends Component {
       const responsiveImage = getResponsiveImage(
         imageSlotWidth,
         this.props.images,
-        this.state.image
+        this.state.image,
       );
       this.setState({
         image: responsiveImage,
-        isBlurred: false
+        isBlurred: false,
       });
     } catch (e) {
       // failed to update image
@@ -77,65 +129,9 @@ export default class Pic extends Component {
     }
 
     return (
-      <div ref='base' style={this.props.baseStyle} onLoad={this.inViewHandler}>
-        <ImageBase {...this.props} {...this.state} />
+      <div ref="base" style={this.props.baseStyle} onLoad={this.inViewHandler}>
+        <ImageWrapper {...this.props} {...this.state} />
       </div>
     );
   }
 }
-
-/** Default Props */
-Pic.defaultProps = {
-  alt: '',
-  defaultIndex: 0,
-  shouldBlur: false,
-  blurAmmount: '20px',
-  baseStyle: {
-    position: 'relative',
-    overflow: 'hidden'
-  },
-  imgStyle: {
-    margin: '0 auto',
-    maxWidth: '100%',
-    width: '100%'
-  },
-  images: [],
-  renderOutOfView: false
-};
-
-/** Prop Types */
-Pic.propTypes = {
-  // The collection of images
-  images: function(props, propName, componentName) {
-    const collectionLength = props[propName].length;
-    if (collectionLength <= 0) {
-      return new Error(
-        'No images are found in `' + propName + '` supplied to ' +
-        componentName + '. Validation failed.'
-      );
-    }
-    for (let i = 0; i < collectionLength; i++) {
-      const imageObj = props[propName][i];
-      if (typeof imageObj.url !== 'string') {
-        return new Error(
-          'Invalid or no url found in `' + propName + '` supplied to ' +
-          componentName + '. Validation failed.'
-        );
-      }
-      if (typeof imageObj.width !== 'number') {
-        return new Error(
-          'Invalid or no width found in`' + propName + '` supplied to ' +
-          componentName + '. Validation failed.'
-        );
-      }
-    }
-  },
-  defaultIndex: React.PropTypes.number, // The default image to render
-  noscriptIndex: React.PropTypes.number, // The default image to render on noscript
-  alt: React.PropTypes.string,
-  imgStyle: React.PropTypes.object,
-  baseStyle: React.PropTypes.object,
-  shouldBlur: React.PropTypes.bool,
-  blurAmmount: React.PropTypes.string,
-  renderOutOfView: React.PropTypes.bool
-};
