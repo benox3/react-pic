@@ -3,7 +3,8 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: [
-    './playground/client' // Your appʼs entry point
+    'babel-polyfill',
+    './playground/client.js', // Your appʼs entry point
   ],
   target: 'node',
   output: {
