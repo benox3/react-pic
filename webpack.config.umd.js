@@ -13,11 +13,11 @@ const config = {
   },
   plugins: [],
   module: {
-    loaders: [
+    rules: [
       {
         test: /.jsx?$/,
-        loader: 'babel-loader',
         exclude: /node_modules/,
+        loader: 'babel-loader',
         query: {
           presets: ['es2015', 'react'],
           plugins: ['transform-object-rest-spread', 'transform-class-properties'],
@@ -26,7 +26,7 @@ const config = {
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   externals: {
     react: {
