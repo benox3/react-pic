@@ -2,6 +2,11 @@ import React, { Component, PropTypes } from 'react';
 
 export default class Image extends Component {
   static propTypes = {
+    alt: PropTypes.string.isRequired,
+    image: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      width: PropTypes.number.isRequired,
+    }).isRequired,
     imgStyle: PropTypes.objectOf(
       PropTypes.oneOfType([
         PropTypes.string,
@@ -17,7 +22,6 @@ export default class Image extends Component {
 
   getStyle() {
     const { imgStyle, isBlurred, blurAmount } = this.props;
-    console.log(isBlurred, blurAmount);
     if (isBlurred) {
       return {
         ...imgStyle,
