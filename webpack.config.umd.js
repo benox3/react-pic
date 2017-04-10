@@ -25,6 +25,9 @@ const config = {
       },
     ],
   },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
   externals: {
     react: {
       root: 'React',
@@ -42,13 +45,11 @@ const config = {
 };
 
 if (env === 'production') {
-  config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false,
-      },
-    }),
-  );
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compressor: {
+      warnings: false,
+    },
+  }));
 }
 
 module.exports = config;
