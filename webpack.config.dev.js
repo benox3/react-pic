@@ -1,33 +1,41 @@
-const path = require('path');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   entry: [
-    './playground/client' // Your appʼs entry point
+    'core-js/library/fn/array/reduce',
+    './playground/client.js', // Your appʼs entry point
   ],
   target: 'node',
   output: {
     publicPath: 'http://localhost:8080/build/',
     path: path.join(__dirname, 'build'),
-    filename: './react-pic.js'
+    filename: './react-pic.js',
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development')
-      }
-    })
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /.jsx?$/,
-        loader: 'babel-loader',
         exclude: /node_modules/,
+        loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react']
-        }
-      }
-    ]
-  }
+          presets: ['es2015', 'react'],
+          plugins: ['transform-object-rest-spread', 'transform-class-properties'],
+        },
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    modules: [
+      './node_modules',
+    ],
+  },
 };

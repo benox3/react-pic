@@ -9,7 +9,7 @@
     },
 
     // Start with rules from eslint recommended setting, and override below.
-    "extends": "eslint:recommended",
+    "extends": "airbnb",
 
     // Linting rules are enforced based on the following levels:
     // (Reference: http://eslint.org/docs/user-guide/configuring)
@@ -45,7 +45,21 @@
         "react/jsx-uses-vars": 1,
 
         // Prevent React to be incorrectly marked as unused
-        "react/jsx-uses-react": 1
+        "react/jsx-uses-react": 1,
+
+        // disable forcing .jsx extension
+        "react/jsx-filename-extension": 0,
+
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": [
+              "**/test/**/*",
+              "**/playground/**/*",
+              "webpack.**"
+            ]
+          }
+        ]
     },
     {
       "parserOptions": {
