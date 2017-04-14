@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import throttle from 'lodash/throttle';
+import debounce from 'lodash/debounce';
+
 import getResponsiveImage from '../utils/getResponsiveImage';
-import debounce from '../utils/debounce';
 import isElementInView from '../utils/isElementInView';
 import ImageWrapper from '../server/index';
 
@@ -62,8 +64,10 @@ export default class Pic extends Component {
     this.setResponsiveImage = this.setResponsiveImage.bind(this);
     this.inViewHandler = this.inViewHandler.bind(this);
 
-    // calls inViewHandler with a debounce
-    this.debouncedInViewHandler = debounce(this.inViewHandler.bind(this), 150);
+    // inViewHandlers
+    this.inViewHandler = this.inViewHandler.bind(this);
+    this.debouncedInViewHandler = debounce(this.inViewHandler.bind(this), 300);
+    this.throttedInViewHandler = throttle(this.inViewHandler.bind(this), 150);
   }
 
   componentDidMount() {

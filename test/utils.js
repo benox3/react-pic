@@ -3,7 +3,6 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 
 import getResponsiveImage from '../lib/utils/getResponsiveImage';
-import debounce from '../lib/utils/debounce';
 import isElementInView from '../lib/utils/isElementInView';
 import convertReactToHTMLStyle from '../lib/utils/convertReactToHTMLStyle';
 
@@ -35,26 +34,6 @@ describe('Utils', () => {
         already loaded`, () => {
       expect(getResponsiveImage(40, images, images[2])).to.equal(images[2]);
       expect(getResponsiveImage(290, images, images[2])).to.equal(images[2]);
-    });
-  });
-
-  describe('debounce', () => {
-    it('debounces correctly', (done) => {
-      let counter = 0;
-
-      const increment = () => {
-        counter += 1;
-      };
-
-      const debouncedIncr = debounce(increment, 15);
-
-      debouncedIncr();
-      debouncedIncr();
-
-      setTimeout(() => {
-        expect(counter).to.equal(1);
-        done();
-      }, 100);
     });
   });
 

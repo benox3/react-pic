@@ -84,5 +84,8 @@
   "browser": {
     "./lib/server/index.js": "./lib/client/index.js"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
 }
