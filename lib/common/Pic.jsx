@@ -58,7 +58,7 @@ export default class Pic extends Component {
         props.images[props.images.length - 1],
       isBlurred: props.shouldBlur,
     };
-
+    this.setPicRef = this.setPicRef.bind(this);
     this.setResponsiveImage = this.setResponsiveImage.bind(this);
     this.inViewHandler = this.inViewHandler.bind(this);
 
@@ -81,13 +81,8 @@ export default class Pic extends Component {
     window.removeEventListener('resize', this.debouncedInViewHandler);
   }
 
-  /**
-   * Sets responsive image if the element is in view
-   */
-  inViewHandler() {
-    if (this.props.renderOutOfView || isElementInView(this.refs.base)) {
-      this.setResponsiveImage();
-    }
+  setPicRef(node) {
+    this.picRef = node;
   }
 
   /**
@@ -95,7 +90,7 @@ export default class Pic extends Component {
    */
   setResponsiveImage() {
     try {
-      const parent = this.refs.base.parentNode;
+      const parent = this.picRef.parentNode;
       const imageSlotWidth = parent.getBoundingClientRect().width;
 
       const responsiveImage = getResponsiveImage(
@@ -112,13 +107,22 @@ export default class Pic extends Component {
     }
   }
 
+  /**
+   * Sets responsive image if the element is in view
+   */
+  inViewHandler() {
+    if (this.props.renderOutOfView || isElementInView(this.picRef)) {
+      this.setResponsiveImage();
+    }
+  }
+
   render() {
     if (!this.state.image) {
       return null;
     }
 
     return (
-      <div ref="base" style={this.props.baseStyle} onLoad={this.inViewHandler}>
+      <div ref={this.setPicRef} style={this.props.baseStyle} onLoad={this.inViewHandler}>
         <ImageWrapper {...this.props} {...this.state} />
       </div>
     );
