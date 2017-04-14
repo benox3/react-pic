@@ -64,10 +64,10 @@ export default class Pic extends Component {
     super(props);
     this.state = {
       image: props.images[props.defaultIndex],
-      noScriptImage: props.noscriptIndex ?
-        props.images[props.noScriptIndex] :
-        props.images[props.images.length-1],
-      isBlurred: props.shouldBlur
+      noscriptImage: props.noscriptIndex ?
+        props.images[props.noscriptIndex] :
+        props.images[props.images.length - 1],
+      isBlurred: props.shouldBlur,
     };
 
     this.setResponsiveImage = this.setResponsiveImage.bind(this);

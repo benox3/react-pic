@@ -3,12 +3,12 @@ import NoScriptImg from './NoScriptImg';
 import Image from '../common/Image';
 
 const ImageWrapper = (props) => {
-  const { alt, imgStyle, noScriptImage } = props;
+  const { alt, imgStyle, noscriptImage } = props;
   return (
     <div>
       <NoScriptImg
         alt={alt}
-        image={noScriptImage}
+        image={noscriptImage}
         style={{
           position: 'absolute',
           zIndex: imgStyle.zIndex ? imgStyle.zIndex + 1 : 10,
@@ -28,7 +28,7 @@ ImageWrapper.propTypes = {
       PropTypes.number,
     ]),
   ).isRequired,
-  noScriptImage: PropTypes.shape({
+  noscriptImage: PropTypes.shape({
     url: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
   }).isRequired,
@@ -36,7 +36,7 @@ ImageWrapper.propTypes = {
 
 ImageWrapper.defaultProps = {
   alt: null,
-  noScriptImage: null,
+  noscriptImage: null,
 };
 
 export default ImageWrapper;
