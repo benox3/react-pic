@@ -19,13 +19,6 @@ export default class Pic extends Component {
     ).isRequired,
     defaultIndex: PropTypes.number, // The default image to render
     noscriptIndex: PropTypes.number, // The default image to render on noscript
-    alt: PropTypes.string,
-    imgStyle: PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-      ]),
-    ),
     baseStyle: PropTypes.objectOf(
       PropTypes.oneOfType([
         PropTypes.string,
@@ -33,10 +26,6 @@ export default class Pic extends Component {
       ]),
     ),
     shouldBlur: PropTypes.bool,
-    blurAmount: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
     renderOutOfView: PropTypes.bool,
   };
 
