@@ -17,8 +17,8 @@
     "cover": "npm run clean:coverage && istanbul cover _mocha -- test",
     "coveralls": "cat coverage/lcov.info | coveralls",
     "lint": "eslint .",
-    "start": "cross-env NODE_ENV=development nodemon --exec babel-node playground/server",
-    "playground": "npm-run-all -p start dev-server",
+    "start": "npm-run-all -p playground dev-server",
+    "playground": "cross-env NODE_ENV=development nodemon --exec babel-node playground/server",
     "prebuild": "npm run lint",
     "prepublish": "npm run clean && npm run build",
     "watch": "watch 'npm run test'"
