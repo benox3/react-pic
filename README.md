@@ -60,7 +60,7 @@ export default class Example extends Component {
 | baseStyle        | `{ position: 'relative', margin: '-5px', overflow: 'hidden' }` | false    | object | Override the container style object. |
 | imgStyle        | `{ margin: '0 auto', maxWidth: '100%', width: '100%' }` | false    | object | Override the image style object. |
 | shouldBlur        | false | false    | boolean | Determines if the image should be blurred before setting the optimal image. |
-| blurAmmount        | '20px' | false    | string | The ammount of blur. Expected format: '10px' or '15%'. |
+| blurAmount        | '20px' | false    | string | The amount of blur. Expected format: '10px' or '15%'. |
 | renderOutOfView        | false | false    | boolean | Determines if the optimal image should be selected even if not in view |
 
 ## Special Thanks
