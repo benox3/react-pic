@@ -1,11 +1,10 @@
 // vim: syntax=json
-
 {
-    "parser": "babel-eslint",
+  "parser": "babel-eslint",
     "env": {
-        "browser": true,
-        "node": true,
-        "mocha": true
+      "browser": true,
+      "node": true,
+      "mocha": true
     },
 
     // Start with rules from eslint recommended setting, and override below.
@@ -17,49 +16,50 @@
     // 1: turn the rule on as a warning (doesn't affect exit code)
     // 2: turn the rule on as an error (exit code is 1 when triggered)
     "rules": {
-        // Use 2 spaces for indentation,
-        "indent": [2, 2, { "SwitchCase": 1 }],
+      // Use 2 spaces for indentation,
+      "indent": [2, 2, { "SwitchCase": 1 }],
 
-        // Require single quotes for strings.
-        "quotes": [2, "single", "avoid-escape"],
+      // Require single quotes for strings.
+      "quotes": [2, "single", "avoid-escape"],
 
-        // Allow 'while (true), do something, break' pattern.
-        "no-constant-condition": 0,
+      // Allow 'while (true), do something, break' pattern.
+      "no-constant-condition": 0,
 
-        // Require semicolons where they should be.
-        "semi": [2, "always"],
+      // Require semicolons where they should be.
+      "semi": [2, "always"],
 
-        // Disallow littering with unused variables (except function args).
-        "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+      // Disallow littering with unused variables (except function args).
+      "no-unused-vars": [2, {"vars": "all", "args": "none"}],
 
-        // Don't enforce newline at the end of file.
-        "eol-last": [0],
+      // Don't enforce newline at the end of file.
+      "eol-last": [0],
 
-        // Don't enforce disallowing mixing regular variable and require declarations
-        "no-mixed-requires": [0],
+      // Don't enforce disallowing mixing regular variable and require declarations
+      "no-mixed-requires": [0],
 
-        // Don't enforce disallowing dangling underscores in identifiers
-        "no-underscore-dangle": [0],
+      // Don't enforce disallowing dangling underscores in identifiers
+      "no-underscore-dangle": [0],
 
-        // Prevent variables used in JSX to be incorrectly marked as unused
-        "react/jsx-uses-vars": 1,
+      // Prevent variables used in JSX to be incorrectly marked as unused
+      "react/jsx-uses-vars": 1,
 
-        // Prevent React to be incorrectly marked as unused
-        "react/jsx-uses-react": 1,
+      // Prevent React to be incorrectly marked as unused
+      "react/jsx-uses-react": 1,
 
-        // disable forcing .jsx extension
-        "react/jsx-filename-extension": 0,
+      // disable forcing .jsx extension
+      "react/jsx-filename-extension": 0,
 
-        "import/no-extraneous-dependencies": [
-          "error",
-          {
-            "devDependencies": [
-              "**/test/**/*",
-              "**/playground/**/*",
-              "webpack.**"
-            ]
-          }
+      "import/no-extraneous-dependencies": [
+        "error",
+      {
+        "devDependencies": [
+          "**/test/**/*",
+        "**/playground/**/*",
+        "webpack.**",
+        "rollup.**"
         ]
+      }
+      ]
     },
     {
       "parserOptions": {
@@ -69,6 +69,6 @@
       }
     },
     "plugins": [
-        "react"
+      "react"
     ]
 }
