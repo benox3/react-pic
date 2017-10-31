@@ -81,7 +81,9 @@ export default class Pic extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.throttedInViewHandler);
+    this.throttledInViewHandler.cancel();
+    this.debouncedInViewHandler.cancel();
+    window.removeEventListener('scroll', this.throttledInViewHandler);
     window.removeEventListener('resize', this.debouncedInViewHandler);
   }
 
