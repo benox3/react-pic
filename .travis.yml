@@ -6,16 +6,17 @@ node_js:
 sudo: false
 
 install:
-    - npm install
+    - yarn
 
 script:
-    - npm run lint
-    - npm run cover
+    - yarn lint
+    - yarn cover
 
 after_script:
-    - npm run coveralls
+    - yarn coveralls
 
 cache:
+    yarn: true
     directories:
         - node_modules
 
