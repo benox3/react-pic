@@ -3,12 +3,13 @@
   "version": "0.1.3",
   "description": "React component for progressive and responsive image loading.",
   "author": "Ben Budnevich",
-  "main": "dist/commonjs/react-pic.js",
+  "main": "dist/react-pic.cjs.js",
+  "module": "dist/react-pic.esm.js",
+  "umd": "dist/react-pic.umd.js",
   "scripts": {
-    "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min",
-    "build:commonjs": "cross-env NODE_ENV=development webpack --config webpack.config.commonjs.js dist/commonjs/react-pic.js",
-    "build:umd": "cross-env NODE_ENV=development webpack --config webpack.config.umd.js dist/umd/react-pic.js",
-    "build:umd:min": "cross-env NODE_ENV=production webpack --config webpack.config.umd.js dist/umd/react-pic.min.js",
+    "build": "npm run build:prod && npm run build:dev",
+    "build:dev": "cross-env BUILD=development rollup -c",
+    "build:prod": "cross-env BUILD=production rollup -c",
     "clean": "npm run clean:coverage && npm run clean:dist",
     "clean:coverage": "rimraf coverage",
     "clean:dist": "rimraf dist",
@@ -16,9 +17,9 @@
     "test": "mocha test/**/*.js",
     "cover": "npm run clean:coverage && istanbul cover _mocha -- test",
     "coveralls": "cat coverage/lcov.info | coveralls",
-    "lint": "eslint .",
-    "start": "cross-env NODE_ENV=development nodemon --exec babel-node playground/server",
-    "playground": "npm-run-all -p start dev-server",
+    "lint": "eslint ./src",
+    "start": "npm-run-all -p playground dev-server",
+    "playground": "cross-env NODE_ENV=development nodemon --exec babel-node playground/server",
     "prebuild": "npm run lint",
     "prepublish": "npm run clean && npm run build",
     "watch": "watch 'npm run test'"
@@ -46,10 +47,14 @@
     "babel-core": "6.17.0",
     "babel-eslint": "6.0.0",
     "babel-loader": "6.2.5",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "babel-plugin-transform-class-properties": "^6.23.0",
-    "babel-plugin-transform-object-rest-spread": "6.16.0",
+    "babel-plugin-transform-es2015-spread": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2015": "6.16.0",
     "babel-preset-react": "6.16.0",
+    "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
     "chai": "3.5.0",
     "core-js": "2.4.1",
@@ -72,7 +77,14 @@
     "react-addons-test-utils": "15.3.2",
     "react-dom": "15.3.2",
     "rimraf": "2.5.4",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-pluginutils": "^2.0.1",
     "sinon": "1.17.6",
+    "uglify-es": "^3.0.24",
     "watch": "0.19.2",
     "webpack": "^2.3.3",
     "webpack-dev-server": "1.16.1"
@@ -81,11 +93,9 @@
     "react": "0.14.x || ^15.0.0-0 || 15.x",
     "react-addons-shallow-compare": "0.14.x || ^15.0.0-0 || 15.x"
   },
-  "browser": {
-    "./lib/server/index.js": "./lib/client/index.js"
-  },
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "rollup-plugin-replace": "^2.0.0"
   }
 }

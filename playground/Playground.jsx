@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Pic from '../lib/';
+import Pic from '../src/';
 
 export default class Playground extends Component {
   constructor(props) {

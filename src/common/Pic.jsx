@@ -66,22 +66,24 @@ export default class Pic extends Component {
 
     // inViewHandlers
     this.inViewHandler = this.inViewHandler.bind(this);
-    this.debouncedInViewHandler = debounce(this.inViewHandler.bind(this), 300);
-    this.throttedInViewHandler = throttle(this.inViewHandler.bind(this), 150);
+    this.debouncedInViewHandler = debounce(this.inViewHandler, 150);
+    this.throttledInViewHandler = throttle(this.inViewHandler, 150);
   }
 
   componentDidMount() {
     this.inViewHandler();
 
     // set responsive image on scroll
-    window.addEventListener('scroll', this.debouncedInViewHandler);
+    window.addEventListener('scroll', this.throttledInViewHandler);
 
     // set responsive image on resize
     window.addEventListener('resize', this.debouncedInViewHandler);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.debouncedInViewHandler);
+    this.throttledInViewHandler.cancel();
+    this.debouncedInViewHandler.cancel();
+    window.removeEventListener('scroll', this.throttledInViewHandler);
     window.removeEventListener('resize', this.debouncedInViewHandler);
   }
 
