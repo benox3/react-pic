@@ -53,7 +53,11 @@ export default [
       },
     ],
     plugins: [
-      replace({ '/server/': '/browser/' }),
+      replace({
+        include: './src/common/**',
+        server: '/browser',
+        delimiters: ['/', ''],
+      }),
     ].concat(config.plugins),
     globals: {
       react: 'React',
