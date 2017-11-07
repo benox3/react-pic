@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageWrapper snapshots should match base snapshot 1`] = `
+<div>
+  <noscript
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<img alt='heart' style='position:absolute;z-index:10;margin:0;' src='http://placehold.it/290?text=♥' />",
+      }
+    }
+  />
+  <img
+    alt="heart"
+    src="http://placehold.it/290?text=♥"
+    style={
+      Object {
+        "margin": 0,
+      }
+    }
+  />
+</div>
+`;

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pic snapshots should match base setup 1`] = `
+<div
+  onLoad={[Function]}
+  style={
+    Object {
+      "overflow": "hidden",
+      "position": "relative",
+    }
+  }
+>
+  <div>
+    <noscript
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<img alt='heart' style='position:absolute;z-index:10;margin:0 auto;max-width:100%;width:100%;' src='http://placehold.it/320?text=♥' />",
+        }
+      }
+    />
+    <img
+      alt="heart"
+      src="http://placehold.it/290?text=♥"
+      style={
+        Object {
+          "margin": "0 auto",
+          "maxWidth": "100%",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Pic snapshots should match snapshot diff with defaultIndex provided 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -15,11 +15,11 @@
+          }
+        }
+      />
+      <img
+        alt=\\"heart\\"
+-       src=\\"http://placehold.it/290?text=♥\\"
++       src=\\"http://placehold.it/320?text=♥\\"
+        style={
+          Object {
+            \\"margin\\": \\"0 auto\\",
+            \\"maxWidth\\": \\"100%\\",
+            \\"width\\": \\"100%\\","
+`;

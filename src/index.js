@@ -1,3 +1,3 @@
-import Pic from './common/Pic';
+import { Pic } from './common/Pic';
 
 export default Pic;

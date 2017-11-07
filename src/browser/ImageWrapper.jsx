@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '../common/Image';
+import { Image } from '../common/Image';
 
 const ImageWrapper = props => (
   <Image {...props} />
