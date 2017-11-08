@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import NoScriptImg from './NoScriptImg';
-import { Image } from '../common/Image';
+import Image from '../common/Image';
 
 const ImageWrapper = (props) => {
   const { alt, imgStyle, noscriptImage } = props;

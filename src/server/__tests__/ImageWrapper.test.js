@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import ImageWrapper from '../ImageWrapper';
 import NoScriptImg from '../NoScriptImg';
-import { Image } from '../../common/Image';
+import Image from '../../common/Image';
 
 describe('ImageWrapper', () => {
   const props = {

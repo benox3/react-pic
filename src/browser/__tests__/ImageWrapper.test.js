@@ -3,7 +3,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import ImageWrapper from '../ImageWrapper';
-import { Image } from '../../common/Image';
+import Image from '../../common/Image';
 
 describe('ImageWrapper', () => {
   const props = {

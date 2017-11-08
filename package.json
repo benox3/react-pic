@@ -15,7 +15,7 @@
     "dev-server": "webpack-dev-server --config webpack.config.dev.js --progress --colors",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "cover": "yarn test --coverage",
+    "cover": "yarn test -- --coverage",
     "coveralls": "cat coverage/lcov.info | coveralls",
     "lint": "eslint ./src",
     "start": "yarn npm-run-all -p playground dev-server",
