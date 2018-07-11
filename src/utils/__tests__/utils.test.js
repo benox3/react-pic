@@ -2,9 +2,9 @@ import { expect } from 'chai';
 import React from 'react';
 import { mount, render } from 'enzyme';
 
-import getResponsiveImage from '../src/utils/getResponsiveImage';
-import isElementInView from '../src/utils/isElementInView';
-import convertReactToHTMLStyle from '../src/utils/convertReactToHTMLStyle';
+import getResponsiveImage from '../getResponsiveImage';
+import isElementInView from '../isElementInView';
+import convertReactToHTMLStyle from '../convertReactToHTMLStyle';
 
 describe('Utils', () => {
   describe('getResponsiveImage', () => {

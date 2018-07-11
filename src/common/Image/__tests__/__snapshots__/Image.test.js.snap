@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image snapshots should match standard snapshot 1`] = `
+<Image
+  alt=""
+  blurAmount={30}
+  image={
+    Object {
+      "url": "http://placehold.it/290?text=♥",
+      "width": 290,
+    }
+  }
+  imgStyle={
+    Object {
+      "margin": "0 auto",
+      "maxWidth": "100%",
+      "width": "100%",
+    }
+  }
+  isBlurred={true}
+>
+  <img
+    alt=""
+    src="http://placehold.it/290?text=♥"
+    style={
+      Object {
+        "filter": "blur(30)",
+        "margin": "0 auto",
+        "maxWidth": "100%",
+        "width": "100%",
+      }
+    }
+  />
+</Image>
+`;

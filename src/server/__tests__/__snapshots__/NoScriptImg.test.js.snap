@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoScriptImg snapshots should match base snapshot 1`] = `
+<noscript
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<img alt='heart' style='margin:0;' src='http://placehold.it/290?text=♥' />",
+    }
+  }
+/>
+`;

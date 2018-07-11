@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageWrapper snapshots should get match the standard snapshot 1`] = `
+<img
+  alt="heart"
+  src="http://placehold.it/290?text=♥"
+  style={
+    Object {
+      "margin": 0,
+    }
+  }
+/>
+`;

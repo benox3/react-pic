@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import throttle from 'lodash/throttle';
 import debounce from 'lodash/debounce';
 
-import getResponsiveImage from '../utils/getResponsiveImage';
-import isElementInView from '../utils/isElementInView';
-import ImageWrapper from '../server/index';
+import getResponsiveImage from '../../utils/getResponsiveImage';
+import isElementInView from '../../utils/isElementInView';
+import ImageWrapper from '../../server/index';
 
 /**
  * Pic Component
